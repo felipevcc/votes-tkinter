@@ -1,2 +1,2 @@
-# proyectoFinal
-Tecnología en programación de software : Proyecto Final.
+# Voting System
+Voting system for election elections
