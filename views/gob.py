@@ -1,8 +1,16 @@
+from faulthandler import disable
 from tkinter import *
 
-import sys
+"""import sys
 from os import path
-sys.path.append( path.dirname( path.dirname( path.abspath(__file__) ) ) )
+sys.path.append( path.dirname( path.dirname( path.abspath(__file__) ) ) )"""
+
+"""import sys
+from pathlib import Path
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent))"""
+
+from os import sys, path
+sys.path.append(path.dirname(path.dirname(path.abspath(__file__))))
 from source.gobernacion import *
         
 def gob():
@@ -31,12 +39,16 @@ def gob():
     # img
     img_cand = PhotoImage(file="img/candidato.png")
 
-    cand_1 = Button(v_gob, text=candidatos[0][0], font=('helvetica', 13), image=img_cand, compound=BOTTOM, command=lambda:suma(0))
-    cand_2 = Button(v_gob, text=candidatos[1][0], font=('helvetica', 13), image=img_cand, compound=BOTTOM, command=lambda:suma(1))
-    cand_3 = Button(v_gob, text=candidatos[2][0], font=('helvetica', 13), image=img_cand, compound=BOTTOM, command=lambda:suma(2))
-    cand_4 = Button(v_gob, text=candidatos[3][0], font=('helvetica', 13), image=img_cand, compound=BOTTOM, command=lambda:suma(3))
-    cand_5 = Button(v_gob, text=candidatos[4][0], font=('helvetica', 13), image=img_cand, compound=BOTTOM, command=lambda:suma(4))
-    v_blanco = Button(v_gob, text='VOTO EN\nBLANCO', font=('helvetica', 12), width=11, height=7, command=lambda:suma(5))
+    def switch(n):
+        config(n, cand_1, cand_2, cand_3, cand_4, cand_5, v_blanco)
+        
+    #state=tkinter.DISABLED
+    cand_1 = Button(v_gob, text=candidatos[0][0], font=('helvetica', 13), image=img_cand, compound=BOTTOM, command=lambda:switch(0))
+    cand_2 = Button(v_gob, text=candidatos[1][0], font=('helvetica', 13), image=img_cand, compound=BOTTOM, command=lambda:switch(1))
+    cand_3 = Button(v_gob, text=candidatos[2][0], font=('helvetica', 13), image=img_cand, compound=BOTTOM, command=lambda:switch(2))
+    cand_4 = Button(v_gob, text=candidatos[3][0], font=('helvetica', 13), image=img_cand, compound=BOTTOM, command=lambda:switch(3))
+    cand_5 = Button(v_gob, text=candidatos[4][0], font=('helvetica', 13), image=img_cand, compound=BOTTOM, command=lambda:switch(4))
+    v_blanco = Button(v_gob, text='VOTO EN\nBLANCO', font=('helvetica', 12), width=11, height=7, command=lambda:switch(5))
 
     # img registraduria
     img3 = PhotoImage(file='img/registraduria.png')
@@ -44,7 +56,7 @@ def gob():
 
     # boton finalizar
     img_salir = PhotoImage(file="img/vote.png")
-    salir = Button(v_gob, text='Finalizar', font=('helvetica',12), image=img_salir, compound=RIGHT)
+    salir = Button(v_gob, text='Finalizar', font=('helvetica',12), image=img_salir, compound=RIGHT, command=terminar)
 
     # ----- llamados y ubicaciones -----
 
