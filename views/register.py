@@ -3,7 +3,7 @@
 from tkinter import *
 
 
-from .inicio import *
+"""from .inicio import *
 
 def run():
     app = Tk()
@@ -16,7 +16,7 @@ def run():
 
     app.mainloop()
 
-"""
+
     # Show the window
     def show():
         formulario_inicio()
@@ -29,7 +29,5 @@ def run():
     btn_siguiente = Button(app, text='Siguiente', command=show)
 
     btn_siguiente.pack()
-
-   
 
 """

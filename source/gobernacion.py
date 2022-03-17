@@ -1,18 +1,8 @@
+"""
+Funcionalidad de vista votacion por gobernacion
+"""
+
 from tkinter import *
-
-"""import sys
-from os import path
-sys.path.append( path.dirname( path.dirname( path.abspath(__file__) ) ) )"""
-
-"""import sys
-from pathlib import Path
-sys.path.insert(0, str(Path(__file__).resolve().parent.parent))"""
-
-
-"""from os import sys, path
-sys.path.append(path.dirname(path.dirname(path.abspath(__file__))))"""
-
-#from views.gob import *
 
 # Matriz candidatos y sus votos
 def candidatos():
@@ -44,6 +34,11 @@ def terminar():
         if boton_marcado == i:
             candidatos[i][1]+=1
             print(candidatos)
-        #Aqui debe retroceder a la vista anterior
-
-
+    try:
+        from views import vot
+    except ImportError:
+        import sys
+        vot = sys.modules[__package__ + 'views.vot']
+    
+    #votacion = vot.votacion
+    #vot.voting_section()

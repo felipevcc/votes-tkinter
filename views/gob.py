@@ -1,21 +1,18 @@
-from faulthandler import disable
+"""
+Vista votacion por gobernacion
+"""
+
 from tkinter import *
-
-"""import sys
-from os import path
-sys.path.append( path.dirname( path.dirname( path.abspath(__file__) ) ) )"""
-
-"""import sys
-from pathlib import Path
-sys.path.insert(0, str(Path(__file__).resolve().parent.parent))"""
 
 from os import sys, path
 sys.path.append(path.dirname(path.dirname(path.abspath(__file__))))
 from source.gobernacion import *
-        
-def gob():
 
+def gob():
+    
     # ------------ window -----------
+    global v_gob
+    
     v_gob = Tk()
     v_gob.geometry('750x550')
     v_gob.title('Elecciones Cali 2022')
@@ -34,6 +31,12 @@ def gob():
     img2 = PhotoImage(file='img/gobernacion2.png')
     lbl_img2 = Label(v_gob, image=img2, bg='white')
 
+    # -------- connections --------
+
+    def prueba():
+        v_gob.destroy()
+        terminar()
+
     # ---------- buttons ------------
 
     # img
@@ -41,8 +44,7 @@ def gob():
 
     def switch(n):
         config(n, cand_1, cand_2, cand_3, cand_4, cand_5, v_blanco)
-        
-    #state=tkinter.DISABLED
+
     cand_1 = Button(v_gob, text=candidatos[0][0], font=('helvetica', 13), image=img_cand, compound=BOTTOM, command=lambda:switch(0))
     cand_2 = Button(v_gob, text=candidatos[1][0], font=('helvetica', 13), image=img_cand, compound=BOTTOM, command=lambda:switch(1))
     cand_3 = Button(v_gob, text=candidatos[2][0], font=('helvetica', 13), image=img_cand, compound=BOTTOM, command=lambda:switch(2))
@@ -56,7 +58,7 @@ def gob():
 
     # boton finalizar
     img_salir = PhotoImage(file="img/vote.png")
-    salir = Button(v_gob, text='Finalizar', font=('helvetica',12), image=img_salir, compound=RIGHT, command=terminar)
+    salir = Button(v_gob, text='Finalizar', font=('helvetica',12), image=img_salir, compound=RIGHT, command=prueba)
 
     # ----- llamados y ubicaciones -----
 
@@ -94,5 +96,3 @@ def gob():
     salir.place(x=320, y=475)
 
     v_gob.mainloop()
-
-gob()

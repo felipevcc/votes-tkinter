@@ -1,7 +1,7 @@
 from tkinter import *
 
-"""
-from .register import *
+
+"""from .register import *
 
 # Open New Window
 def formulario_inicio():
