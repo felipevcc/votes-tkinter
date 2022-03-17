@@ -1,24 +1,30 @@
-from tkinter import *
-
-
-"""from .register import *
-
-# Open New Window
-def formulario_inicio():
-    second = Toplevel()
-    second.title("segunda pagina")
-    second.geometry("400x400")
-
-    def show():
-
-        hide()
-    
-    # Hide the window
-    def hide():
-        second.destroy()
-
-
-    btn_atras = Button(second, text='atras', command=show)
-
-    btn_atras.pack()
 """
+Vista de inicio
+"""
+
+from tkinter import *
+from .vot import *
+
+from os import sys, path
+sys.path.append(path.dirname(path.dirname(path.abspath(__file__))))
+from source.inicio import *
+
+def inicio():
+
+    # ------------ window -----------
+
+    inicio = Tk()
+    inicio.title('PAGINA PRINCIPAL')
+    inicio.geometry('750x550')
+
+    # --------- connections ----------
+
+    def s_votacion():
+        inicio.destroy()
+        voting_section()
+
+    # ---------- buttons ------------
+
+    votar = Button(inicio, text='VOTAR', command=s_votacion)
+    votar.pack()
+    inicio.mainloop()

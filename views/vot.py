@@ -82,4 +82,4 @@ def voting_section():
 
     votacion.mainloop()
 
-voting_section()
+#voting_section()

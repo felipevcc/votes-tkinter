@@ -39,6 +39,6 @@ def terminar():
     except ImportError:
         import sys
         vot = sys.modules[__package__ + 'views.vot']
-    
+    vot.voting_section()
     #votacion = vot.votacion
     #vot.voting_section()

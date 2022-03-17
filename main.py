@@ -1,6 +1,6 @@
-"""from views import register
+from views import inicio
 
 if __name__ == "__main__":
-    register.run()"""
+    inicio.inicio()
 
 

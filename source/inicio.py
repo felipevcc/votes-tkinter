@@ -1,0 +1,3 @@
+"""
+Funcionalidad vista de inicio
+"""
