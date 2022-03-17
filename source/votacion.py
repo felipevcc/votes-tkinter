@@ -12,3 +12,12 @@ def show_gobernacion():
         import sys
         gob = sys.modules[__package__ + '.gob']
     gob.gob()
+
+# abrir vista alcaldia
+def show_alcaldia():
+    try:
+        from views import alc
+    except ImportError:
+        import sys
+        alc = sys.modules[__package__ + '.alc']
+    alc.alc()

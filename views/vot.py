@@ -20,8 +20,13 @@ def voting_section():
     # --------- connections ----------
     
     def s_gob():
+        #gobernacion['state'] = DISABLED
         votacion.destroy()
         show_gobernacion()
+    
+    def s_alc():
+        votacion.destroy()
+        show_alcaldia()
     
     # ---------- Headboard -----------
 
@@ -37,7 +42,7 @@ def voting_section():
     gobernacion = Button(votacion, image=img_gob, relief="raised", borderwidth=2, command=s_gob)
 
     img_alc = PhotoImage(master=votacion, file="img/alcaldia.png")
-    alcaldia = Button(votacion, image=img_alc, relief="raised", borderwidth=2)
+    alcaldia = Button(votacion, image=img_alc, relief="raised", borderwidth=2, command=s_alc)
 
     vgob_blanco = Button(votacion, text='VOTO EN BLANCO', height=2, width=28)
     valc_blanco = Button(votacion, text='VOTO EN BLANCO', height=2, width=28)
