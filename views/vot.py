@@ -27,6 +27,10 @@ def voting_section():
     def s_alc():
         votacion.destroy()
         show_alcaldia()
+
+    def salida():
+        votacion.destroy()
+        show_inicio()
     
     # ---------- Headboard -----------
 
@@ -52,7 +56,7 @@ def voting_section():
     lbl_img2 = Label(votacion, image=img2, bg='white')
 
     img_salir = PhotoImage(master=votacion, file="img/vote.png")
-    salir = Button(votacion, text='Finalizar', font=('helvetica',12), image=img_salir, compound=RIGHT)
+    salir = Button(votacion, text='Finalizar', font=('helvetica',12), image=img_salir, compound=RIGHT, command=salida)
 
     # ----- llamados y ubicaciones -----
 

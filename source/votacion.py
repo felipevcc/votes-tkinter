@@ -21,3 +21,12 @@ def show_alcaldia():
         import sys
         alc = sys.modules[__package__ + '.alc']
     alc.alc()
+
+# salir de votacion y abrir inicio
+def show_inicio():
+    try:
+        from views import inicio
+    except ImportError:
+        import sys
+        inicio = sys.modules[__package__ + '.inicio']
+    inicio.inicio()
