@@ -3,6 +3,7 @@ Funcionalidad vista principal de votacion
 """
 
 from tkinter import *
+from tkinter import messagebox
 
 from os import sys, path
 sys.path.append(path.dirname(path.dirname(path.abspath(__file__))))
@@ -28,17 +29,28 @@ def show_alcaldia():
         alc = sys.modules[__package__ + '.alc']
     alc.alc()
 
-# salir de votacion y abrir inicio
+#estado de los botones
+states = [NORMAL,NORMAL]
+
+# salir a la vista de inicio y verificar si se voto por al menos una corporacion
 def show_inicio():
     try:
         from views import inicio
     except ImportError:
         import sys
         inicio = sys.modules[__package__ + '.inicio']
-    inicio.inicio()
+    ventana = vot.votacion
+    if states[0] == NORMAL and states[1] == NORMAL:
+        messagebox.showinfo(message="Debe votar al menos por una corporación", title="ERROR")
+    else:
+        ventana.destroy()
+        inicio.inicio()
 
 # estado de cada boton (gobernacion/alcaldia)
-states = [NORMAL,NORMAL]
 def func_states(state,posicion):
-    states[posicion]=state
+    if posicion == 3:
+        states[0]=state
+        states[1]=state
+    else:
+        states[posicion]=state
     vot.voting_section(states[0],states[1])

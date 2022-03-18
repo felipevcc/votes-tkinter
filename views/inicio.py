@@ -21,9 +21,8 @@ def inicio():
 
     def s_votacion():
         inicio.destroy()
-        # establecer estado de botones en la vista principal de votacion
-        voting_section(NORMAL, NORMAL)
-
+        show_votacion()
+        
     # ---------- buttons ------------
 
     votar = Button(inicio, text='VOTAR', command=s_votacion)

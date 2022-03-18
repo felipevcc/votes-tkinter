@@ -30,7 +30,6 @@ def voting_section(state_gob, state_alc):
 
     # conectar vista de inicio
     def salida():
-        votacion.destroy()
         show_inicio()
     
     # ---------- Headboard -----------
