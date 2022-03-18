@@ -33,6 +33,10 @@ def alc():
 
     # -------- connections --------
 
+    def volver():
+        v_alc.destroy()
+        regresar()
+
     def salida():
         v_alc.destroy()
         terminar()
@@ -55,6 +59,10 @@ def alc():
     # img registraduria
     img3 = PhotoImage(file='img/registraduria.png')
     lbl_img3 = Label(v_alc, image=img3, bg='white')
+
+    # boton de volver
+    img_volver = PhotoImage(file="img/volver2.png")
+    volver = Button(v_alc, text='Volver', font=('helvetica',12), image=img_volver, compound=RIGHT, command=volver)
 
     # boton finalizar
     img_salir = PhotoImage(file="img/vote.png")
@@ -92,7 +100,10 @@ def alc():
     lbl_img3.pack()
     lbl_img3.place(x=562, y=460)
 
+    volver.pack()
+    volver.place(x=245, y=475)
+
     salir.pack()
-    salir.place(x=320, y=475)
+    salir.place(x=395, y=475)
 
     v_alc.mainloop()

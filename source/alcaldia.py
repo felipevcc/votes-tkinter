@@ -28,6 +28,15 @@ def config(a,b1,b2,b3,b4,b5,vb):
         else:
             botones[i].configure(bg='grey')
 
+# regresar a vista principal de votacion sin votar
+def regresar():
+    try:
+        import votacion
+    except ImportError:
+        import sys
+        votacion = sys.modules[__package__ + '.votacion']
+    votacion.func_states(NORMAL,1)
+
 # Sumar voto (Boton de Finalizar) y establecer estado del boton
 def terminar():
     for i in range(len(botones)):
