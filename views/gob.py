@@ -38,7 +38,6 @@ def gob():
         regresar()
 
     def salida():
-        v_gob.destroy()
         terminar()
 
     # ---------- buttons ------------

@@ -38,7 +38,6 @@ def alc():
         regresar()
 
     def salida():
-        v_alc.destroy()
         terminar()
 
     # ---------- buttons ------------

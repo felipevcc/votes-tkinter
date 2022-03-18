@@ -3,6 +3,10 @@ Funcionalidad de vista votacion por alcaldia
 """
 
 from tkinter import *
+from tkinter import messagebox
+from os import sys, path
+sys.path.append(path.dirname(path.dirname(path.abspath(__file__))))
+from views import alc
 
 # Matriz candidatos y sus votos
 def candidatos():
@@ -37,15 +41,31 @@ def regresar():
         votacion = sys.modules[__package__ + '.votacion']
     votacion.func_states(NORMAL,1)
 
-# Sumar voto (Boton de Finalizar) y establecer estado del boton
-def terminar():
-    for i in range(len(botones)):
-        if boton_marcado == i:
-            candidatos_alc[i][1]+=1
-            print(candidatos_alc)
+# reiniciar variable de boton marcado y volver a la vista principal de votacion mediante la funcion terminar()
+def terminar2():
+    global boton_marcado
+    boton_marcado = None
     try:
         import votacion
     except ImportError:
         import sys
         votacion = sys.modules[__package__ + '.votacion']
     votacion.func_states(DISABLED,1)
+
+# Sumar voto (Boton de Finalizar) y establecer estado del boton
+def terminar():
+    voto = False
+    try:
+        for i in range(len(botones)):
+            if boton_marcado == i:
+                candidatos_alc[i][1]+=1
+                voto = True
+                print(candidatos_alc)
+    except:
+        pass
+    if voto == False:
+        messagebox.showinfo(message="Debe votar, de lo contrario regrese atrás", title="ERROR")
+    else:
+        ventana = alc.v_alc
+        ventana.destroy() 
+        terminar2()

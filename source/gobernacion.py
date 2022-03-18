@@ -3,6 +3,10 @@ Funcionalidad de vista votacion por gobernacion
 """
 
 from tkinter import *
+from tkinter import messagebox
+from os import sys, path
+sys.path.append(path.dirname(path.dirname(path.abspath(__file__))))
+from views import gob
 
 # Matriz candidatos y sus votos
 def candidatos():
@@ -37,15 +41,31 @@ def regresar():
         votacion = sys.modules[__package__ + '.votacion']
     votacion.func_states(NORMAL,0)
 
-# Sumar voto (Boton de Finalizar) y establecer estado del boton
-def terminar():
-    for i in range(len(botones)):
-        if boton_marcado == i:
-            candidatos_gob[i][1]+=1
-            print(candidatos_gob)
+# reiniciar variable de boton marcado y volver a la vista principal de votacion mediante la funcion terminar()
+def terminar2():
+    global boton_marcado
+    boton_marcado = None
     try:
         import votacion
     except ImportError:
         import sys
         votacion = sys.modules[__package__ + '.votacion']
     votacion.func_states(DISABLED,0)
+
+# sumar voto (Boton de Finalizar) y establecer estado del boton
+def terminar():
+    voto = False
+    try:
+        for i in range(len(botones)):
+            if boton_marcado == i:
+                candidatos_gob[i][1]+=1
+                voto = True
+                print(candidatos_gob)
+    except: 
+        pass
+    if voto == False:
+        messagebox.showinfo(message="Debe votar, de lo contrario regrese atrás", title="ERROR")
+    else:
+        ventana = gob.v_gob
+        ventana.destroy() 
+        terminar2()
