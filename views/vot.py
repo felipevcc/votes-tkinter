@@ -7,8 +7,8 @@ from tkinter import *
 from os import sys, path
 sys.path.append(path.dirname(path.dirname(path.abspath(__file__))))
 from source.votacion import *
-  
-def voting_section():
+
+def voting_section(state_gob, state_alc):
 
     # ------------ window -----------
     global votacion
@@ -19,15 +19,16 @@ def voting_section():
 
     # --------- connections ----------
     
+    # conectar vista votacion por gobernacion
     def s_gob():
-        #gobernacion['state'] = DISABLED
-        votacion.destroy()
         show_gobernacion()
     
+    # conectar vista votacion por alcaldia
     def s_alc():
         votacion.destroy()
         show_alcaldia()
 
+    # conectar vista de inicio
     def salida():
         votacion.destroy()
         show_inicio()
@@ -41,12 +42,11 @@ def voting_section():
     h1 = Label(votacion, text='ELECCIONES CALI 2022', bg='white', font=('helvetica', 14))
 
     # ---------- buttons ------------
-
     img_gob = PhotoImage(master=votacion, file="img/gobernacion.png")
-    gobernacion = Button(votacion, image=img_gob, relief="raised", borderwidth=2, command=s_gob)
+    gobernacion = Button(votacion, image=img_gob, relief="raised", borderwidth=2, command=s_gob, state=state_gob)
 
     img_alc = PhotoImage(master=votacion, file="img/alcaldia.png")
-    alcaldia = Button(votacion, image=img_alc, relief="raised", borderwidth=2, command=s_alc)
+    alcaldia = Button(votacion, image=img_alc, relief="raised", borderwidth=2, command=s_alc, state=state_alc)
 
     vgob_blanco = Button(votacion, text='VOTO EN BLANCO', height=2, width=28)
     valc_blanco = Button(votacion, text='VOTO EN BLANCO', height=2, width=28)
@@ -85,5 +85,3 @@ def voting_section():
     salir.place(x=311, y=470)
 
     votacion.mainloop()
-
-#voting_section()

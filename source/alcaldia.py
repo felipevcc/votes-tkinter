@@ -28,18 +28,15 @@ def config(a,b1,b2,b3,b4,b5,vb):
         else:
             botones[i].configure(bg='grey')
 
-# Sumar voto (Boton de Finalizar)
+# Sumar voto (Boton de Finalizar) y establecer estado del boton
 def terminar():
     for i in range(len(botones)):
         if boton_marcado == i:
             candidatos_alc[i][1]+=1
             print(candidatos_alc)
     try:
-        from views import vot
+        import votacion
     except ImportError:
         import sys
-        vot = sys.modules[__package__ + 'views.vot']
-    vot.voting_section()
-    
-    #votacion = vot.votacion
-    #vot.voting_section()
+        votacion = sys.modules[__package__ + '.votacion']
+    votacion.func_states(DISABLED,1)

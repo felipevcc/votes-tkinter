@@ -12,7 +12,7 @@ from source.inicio import *
 def inicio():
 
     # ------------ window -----------
-
+    
     inicio = Tk()
     inicio.title('PAGINA PRINCIPAL')
     inicio.geometry('750x550')
@@ -21,7 +21,8 @@ def inicio():
 
     def s_votacion():
         inicio.destroy()
-        voting_section()
+        # establecer estado de botones en la vista principal de votacion
+        voting_section(NORMAL, NORMAL)
 
     # ---------- buttons ------------
 

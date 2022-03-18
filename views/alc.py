@@ -96,4 +96,3 @@ def alc():
     salir.place(x=320, y=475)
 
     v_alc.mainloop()
-#alc()
