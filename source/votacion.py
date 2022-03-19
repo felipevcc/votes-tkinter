@@ -22,11 +22,13 @@ def show_gobernacion():
 
 # abrir vista alcaldia
 def show_alcaldia():
+    votacion = vot.votacion
     try:
         from views import alc
     except ImportError:
         import sys
         alc = sys.modules[__package__ + '.alc']
+    votacion.destroy()
     alc.alc()
 
 #estado de los botones

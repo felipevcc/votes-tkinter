@@ -25,7 +25,6 @@ def voting_section(state_gob, state_alc):
     
     # conectar vista votacion por alcaldia
     def s_alc():
-        votacion.destroy()
         show_alcaldia()
 
     # conectar vista de inicio
@@ -46,9 +45,6 @@ def voting_section(state_gob, state_alc):
 
     img_alc = PhotoImage(master=votacion, file="img/alcaldia.png")
     alcaldia = Button(votacion, image=img_alc, relief="raised", borderwidth=2, command=s_alc, state=state_alc)
-
-    vgob_blanco = Button(votacion, text='VOTO EN BLANCO', height=2, width=28)
-    valc_blanco = Button(votacion, text='VOTO EN BLANCO', height=2, width=28)
     
     # img registraduria
     img2 = PhotoImage(master=votacion, file='img/registraduria.png')
@@ -60,27 +56,21 @@ def voting_section(state_gob, state_alc):
     # ----- llamados y ubicaciones -----
 
     h1.pack()
-    h1.place(x=270, y=40)
+    h1.place(x=270, y=55)
 
     lbl_img1.pack()
-    lbl_img1.place(x=90, y=7)
+    lbl_img1.place(x=90, y=18)
 
     gobernacion.pack()
-    gobernacion.place(x=75, y=100)
+    gobernacion.place(x=75, y=125)
 
     alcaldia.pack()
-    alcaldia.place(x=395, y=100)
-
-    vgob_blanco.pack()
-    vgob_blanco.place(x=101, y=383)
-
-    valc_blanco.pack()
-    valc_blanco.place(x=421, y=383)
+    alcaldia.place(x=395, y=125)
 
     lbl_img2.pack()
-    lbl_img2.place(x=562, y=460)
+    lbl_img2.place(x=562, y=450)
 
     salir.pack()
-    salir.place(x=311, y=470)
+    salir.place(x=311, y=460)
 
     votacion.mainloop()
