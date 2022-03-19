@@ -34,11 +34,15 @@ def config(a,b1,b2,b3,b4,b5,vb):
 
 # regresar a vista principal de votacion sin votar
 def regresar():
+    global boton_marcado
+    boton_marcado = None
     try:
         import votacion
     except ImportError:
         import sys
         votacion = sys.modules[__package__ + '.votacion']
+    ventana = alc.v_alc
+    ventana.destroy() 
     votacion.func_states(NORMAL,1)
 
 # reiniciar variable de boton marcado y volver a la vista principal de votacion mediante la funcion terminar()

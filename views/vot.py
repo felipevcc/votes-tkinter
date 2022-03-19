@@ -13,9 +13,17 @@ def voting_section(state_gob, state_alc):
     # ------------ window -----------
     global votacion
     votacion = Tk()
-    votacion.geometry('750x550')
     votacion.title('Elecciones Cali 2022')
     votacion.configure(bg='white')
+
+    ancho_ventana = 750
+    alto_ventana  = 550
+
+    x_ventana = votacion.winfo_screenwidth() // 2 - ancho_ventana // 2
+    y_ventana = votacion.winfo_screenheight() // 2 - alto_ventana // 2
+
+    posicion = str(ancho_ventana) + "x" + str(alto_ventana) + "+" + str(x_ventana) + "+" + str(y_ventana)
+    votacion.geometry(posicion)
 
     # --------- connections ----------
     

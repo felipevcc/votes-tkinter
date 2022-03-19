@@ -14,9 +14,17 @@ def alc():
     global v_alc
     
     v_alc = Tk()
-    v_alc.geometry('750x550')
     v_alc.title('Elecciones Cali 2022')
     v_alc.configure(bg='white')
+
+    ancho_ventana = 750
+    alto_ventana  = 550
+
+    x_ventana = v_alc.winfo_screenwidth() // 2 - ancho_ventana // 2
+    y_ventana = v_alc.winfo_screenheight() // 2 - alto_ventana // 2
+
+    posicion = str(ancho_ventana) + "x" + str(alto_ventana) + "+" + str(x_ventana) + "+" + str(y_ventana)
+    v_alc.geometry(posicion)
 
     # ---------- Headboard -----------
 
@@ -34,7 +42,6 @@ def alc():
     # -------- connections --------
 
     def volver():
-        v_alc.destroy()
         regresar()
 
     def salida():
