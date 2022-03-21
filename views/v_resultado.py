@@ -93,7 +93,7 @@ def result_section():
     lbl_porcentaje_votos_hombres_alcaldia = Label(v_resultado, text='Porcentaje Votos Hombres : ' + str(round(porcentaje_votos_hombre_alcaldia,2)) + '%', bg='white', font=('helvetica', 10))    
     lbl_porcentaje_votos_mujeres_alcaldia = Label(v_resultado, text='Porcentaje Votos Mujeres : ' + str(round(porcentaje_votos_mujeres_alcaldia,2)) + '%', bg='white', font=('helvetica', 10))    
     
-    btn_cerrar_votacion = Button(v_resultado, text='Cerrar Proceso Votacion', bg='white', font=('helvetica', 10), command=finalizar_votacion)
+    btn_cerrar_votacion = Button(v_resultado, text='Cerrar Proceso Votación', bg='white', font=('helvetica', 10), command=finalizar_votacion)
 
     # ----- llamados y ubicaciones -----
 

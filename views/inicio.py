@@ -83,7 +83,7 @@ def inicio():
 
             Button(top,text= "Validar Permisos", command= validar).pack(pady= 5,side=TOP)
         else:
-            messagebox.showinfo(message="La maquina no se puede cerrar, debe haber al menos 1 voto para gobernacion y 1 voto para alcaldia, diferente de Voto en Blanco", title="ERROR")
+            messagebox.showinfo(message="La maquina no se puede cerrar, debe haber al menos 1 voto para gobernación y 1 voto para alcaldía, diferente de Voto en Blanco", title="ERROR")
 
     # ---------- Headboard -----------
 
@@ -94,17 +94,17 @@ def inicio():
     h1 = Label(inicio, text='ELECCIONES CALI 2022', bg='white', font=('helvetica', 14))
 
     # ---------- Entrys ------------
-    lbl_cedula_identidad = Label(inicio, text='Ingrese su numero de cedula : ', font=('helvetica', 12), bg='white')
+    lbl_cedula_identidad = Label(inicio, text='Ingrese su número de cédula : ', font=('helvetica', 12), bg='white')
     txt_cedula_identidad = Entry(inicio, width=50, font=('helvetica', 10))
     
     # ---------- RadioButtons ------------
     opcion = IntVar()
-    lbl_seleccion_sexo = Label(inicio, text='Seleccione su genero : ', font=('helvetica', 12), bg='white')
+    lbl_seleccion_sexo = Label(inicio, text='Seleccione su género : ', font=('helvetica', 12), bg='white')
     rbt_masculino = Radiobutton(inicio, text='Masculino', variable=opcion, value=1)
     rbt_femenino  = Radiobutton(inicio, text='Femenino',  variable=opcion, value=2)
 
     # ---------- buttons ------------
-    btn_votar = Button(inicio, text='Iniciar Votacion', command=s_votacion)
+    btn_votar = Button(inicio, text='Iniciar Votación', command=s_votacion)
     btn_cerrar_caja = Button(inicio, text='Cerrar mesa', command=popup, font=('helvetica', 12))
 
     # ----- llamados y ubicaciones -----
