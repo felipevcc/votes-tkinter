@@ -64,7 +64,13 @@ def terminar():
             if boton_marcado == i:
                 candidatos_alc[i][1]+=1
                 voto = True
-                print(candidatos_alc)
+        try:
+            import inicio
+        except ImportError:
+            import sys
+            inicio = sys.modules[__package__ + '.inicio']
+            inicio.acum_votos_alcaldia = candidatos_alc
+            inicio.acum_lista_votantes[-1][2] = 'S'
     except:
         pass
     if voto == False:

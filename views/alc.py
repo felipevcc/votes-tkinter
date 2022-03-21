@@ -72,7 +72,7 @@ def alc():
 
     # boton finalizar
     img_salir = PhotoImage(file="img/vote.png")
-    salir = Button(v_alc, text='Finalizar', font=('helvetica',12), image=img_salir, compound=RIGHT, command=salida)
+    salir = Button(v_alc, text='Votar', font=('helvetica',12), image=img_salir, compound=RIGHT, command=salida)
 
     # ----- llamados y ubicaciones -----
 
