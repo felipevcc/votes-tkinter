@@ -16,6 +16,7 @@ def gob():
     v_gob = Tk()
     v_gob.title('Elecciones Cali 2022')
     v_gob.configure(bg='white')
+    v_gob.resizable(0,0)
 
     ancho_ventana = 750
     alto_ventana  = 550

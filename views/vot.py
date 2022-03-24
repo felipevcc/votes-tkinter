@@ -15,6 +15,7 @@ def voting_section(state_gob, state_alc):
     votacion = Tk()
     votacion.title('Elecciones Cali 2022')
     votacion.configure(bg='white')
+    votacion.resizable(0,0)
 
     ancho_ventana = 750
     alto_ventana  = 550

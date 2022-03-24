@@ -16,6 +16,7 @@ def alc():
     v_alc = Tk()
     v_alc.title('Elecciones Cali 2022')
     v_alc.configure(bg='white')
+    v_alc.resizable(0,0)
 
     ancho_ventana = 750
     alto_ventana  = 550

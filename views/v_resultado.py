@@ -45,6 +45,7 @@ def result_section():
     v_resultado = Tk()
     v_resultado.title('Resultados')
     v_resultado.configure(bg='white')
+    v_resultado.resizable(0,0)
 
     ancho_ventana = 750
     alto_ventana  = 550
